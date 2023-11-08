@@ -1,0 +1,210 @@
+:root{
+    --white:hsl(0, 0%, 100%);
+    --lightest-gray: hsl(210, 60%, 98%);
+    --lighter-gray: hsl(211, 68%, 94%);
+    --light-blue: hsl(205, 33%, 90%);
+    --gray: hsl(219, 14%, 63%);
+    --darkest-gray: hsl(219, 12%, 42%);
+    --dark-blue: hsl(224, 21%, 14%);
+    --red: hsl(1, 90%, 64%);
+    --blue: hsl(219, 85%, 26%);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+p{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-weight: 800;
+}
+
+body{
+    background-color: var(--lightest-gray);
+}
+
+.notification-box{
+    width: 683px;
+    padding:30px 25px 12px 25px;
+    background-color: var(--white);
+    margin: 40px auto;
+    box-shadow: 0px 0px 8px 0px var(--light-blue);
+    border-radius: 10px;
+}
+
+.notification-box header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notification-box header .left{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.left .notification-count{
+    width: 27px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--blue);
+    color: var(--white);
+    font-size: 13px;
+    border-radius: 5px;
+    font-weight: 800;
+    margin-top: 4px;
+}
+
+.left h2{
+    font-size: 22px;
+    color: var(--dark-blue);
+}
+
+.notification-box header .right a{
+    text-decoration: none;
+    color: var(--darkest-gray);
+    font-size: 15px;
+}
+
+.notification-box header .right a:hover{
+    color: var(--dark-blue);
+}
+
+.notification-box .notifications{
+    display: flex;
+    flex-direction: column;
+    padding-top: 25px;
+    gap: 10px;
+}
+
+.notifications .notification{
+    display: flex;
+    gap: 15px;
+    padding: 15px 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.notification .profile-pic{
+    width: 40px;
+    height: 40px;
+    border-radius:50%;
+}
+
+.notification .description{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.notification .pvt-msg{
+    display: none;
+    transition: .15s linear;
+}
+
+.notification .pvt-msg:hover{
+    background: var(--light-blue);
+}
+.notification .notification-image{
+    display: none;
+}
+
+.description .message {
+    display: inline;
+    align-items: center;
+    color: var(--darkest-gray);
+    line-height: 1.5;
+}
+
+.message .name,.title,.title-2{
+    font-weight: 800;
+}
+
+.message .name{
+    margin-right: 5px;
+}
+
+.message .name:hover,.title:hover,.title-2:hover{
+    color: var(--dark-blue);
+}
+
+.message .title,.title-2{
+    margin-left: 5px;
+}
+
+.message .title-2{
+    color: var(--darkest-gray);
+}
+
+.notification .description .date{
+    color: var(--gray);
+}
+
+.notification.new{
+    background-color: var(--lightest-gray);
+}
+
+.notification.new .description .message .mark{
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--red);
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+.notification.private-message .pvt-msg{
+    display: block;
+    padding: 20px;
+    border: 1px solid var(--lighter-gray);
+    color: var(--darkest-gray);
+    border-radius: 5px;
+    margin-top: 12px;
+}
+
+.notification.picture{
+    position: relative;
+}
+.notification.picture .notification-image{
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
+    height: 45px;
+    width: 45px;
+}
+
+@media screen and (max-width:700px){
+    .notification-box{
+        height: fit-content;
+        width: 100vw;
+        margin-top: 0;
+        border-radius: 0;
+        margin-bottom: 0;
+        padding-inline:15px ;
+    }
+
+    p,span,div{
+        font-size: 14.2px!important;
+    }
+
+    .notification .pvt-msg.pvt-msg{
+        padding: 15px;
+    }
+
+    .notification.picture .description .message{
+        width: 80%;
+    }
+}
